@@ -1,0 +1,16 @@
+body{
+    background-color: red;
+}
+
+input{
+
+    position: absolute;
+
+}
+
+input.empty {
+    font-family: 'Roboto', sans-serif, FontAwesome;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: inherit;
+}

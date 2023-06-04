@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Utilisateurs</title>
+    <script>
+  good="";
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("demo").innerHTML = this.responseText;
+    good= this.responseText;
+    
+  }
+  xhttp.open("POST", "test.php");
+  xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhttp.send("nom=toto");
+}
+function loadGenre() {
+  const xhttp = new XMLHttpRequest();
+  genre= document.getElementById("new").value;
+  xhttp.onload = function() {
+    
+    good= this.responseText;
+    //alert(good==(genre+"dede"));
+    //if(good==genre+"dede"){
+      select=document.getElementById("genre");
+      opt = document.createElement("option");
+      opt.value = "3";// PK du genre ajouté
+      opt.text = genre;
+
+      select.add(opt, null);
+  
+    //}
+    
+  }
+  xhttp.open("POST", "test.php");
+  xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhttp.send("nom="+genre);
+}
+
+</script>
+</head>
+<body>
+Test
+<div id="demo">
+<h2>XMLHttpRequest et Ajax </h2>
+<button type="button" onclick="loadDoc()">Envoi de la requête</button>
+</div>
+
+
+<input type="button" value="Affiche val reçue" name="" onclick="alert(good);">
+
+<select name="genre" id="genre">
+  <option value="1">western</option>
+  <option value="2">comédie</option>
+</select>
+<input type="text" name="new" id="new">
+<button type="button" onclick="loadGenre()">Ajout</button>
+</body>
+</html>
